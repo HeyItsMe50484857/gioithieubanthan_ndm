@@ -18,7 +18,7 @@
       --display:'Rajdhani','Be Vietnam Pro',sans-serif;
     }
     *{box-sizing:border-box}
-    html{scroll-behavior:smooth;scroll-padding-top:26px}
+    html{scroll-behavior:smooth;scroll-padding-top:104px}
     body{
       margin:0;min-height:100vh;overflow-x:hidden;color:var(--text);
       font-family:'Be Vietnam Pro',sans-serif;
@@ -68,7 +68,7 @@
     .rail-link:after{content:attr(data-label);position:absolute;left:41px;white-space:nowrap;padding:6px 9px;background:#252d29;border:1px solid var(--line);color:#f4f5f2;font-size:10px;opacity:0;pointer-events:none;transform:translateX(-4px);transition:.18s}
     .rail-link:hover:after,.rail-link:focus-visible:after{opacity:1;transform:translateX(0)}
     .wrap{width:min(1120px,calc(100% - 124px));margin:0 auto 0 max(88px,calc((100% - 1120px)/2 + 48px));position:relative}
-    header{min-height:78px;display:flex;align-items:center;justify-content:space-between;gap:24px;border-bottom:1px solid var(--line-soft)}
+    header{min-height:78px;display:flex;align-items:center;justify-content:space-between;gap:24px;border-bottom:1px solid var(--line-soft);position:sticky;top:0;z-index:50;padding:10px 14px;background:rgba(5,8,7,.94);backdrop-filter:blur(18px);box-shadow:0 10px 30px rgba(0,0,0,.38)}
     .brand{font:700 25px var(--display);letter-spacing:.09em;color:#f2f4f1;white-space:nowrap}
     .brand span{color:var(--orange);text-shadow:0 0 18px rgba(255,159,0,.42)}
     nav{display:flex;align-items:center;gap:clamp(12px,2.1vw,27px);color:#a5b0aa;font-size:11px;font-weight:600;letter-spacing:.055em;text-transform:uppercase}
@@ -78,7 +78,7 @@
     .hero:before{content:'GX / PERSONAL SPACE';position:absolute;right:0;top:30px;color:rgba(255,159,0,.3);font:600 10px var(--display);letter-spacing:.24em}
     .eyebrow{display:inline-flex;align-items:center;gap:10px;padding:8px 13px;border:1px solid var(--line);border-radius:3px;color:#ffc15e;font-size:10px;letter-spacing:.17em;text-transform:uppercase;background:rgba(255,159,0,.055)}
     .dot{width:7px;height:7px;border-radius:50%;background:var(--orange);box-shadow:0 0 13px var(--orange)}
-    h1{font:700 clamp(30px,5.8vw,76px)/1 var(--display);letter-spacing:-.055em;margin:25px 0 20px;text-transform:uppercase;white-space:nowrap}
+    h1{font:700 clamp(30px,5.8vw,76px)/1 Arial,Helvetica,sans-serif;letter-spacing:-.055em;margin:25px 0 20px;text-transform:uppercase;white-space:nowrap}
     h1 span{display:inline;color:var(--orange);text-shadow:0 0 30px rgba(255,129,0,.16)}
     .intro{max-width:590px;color:#aeb8b2;font-size:14px;line-height:2}
     .actions{display:flex;gap:12px;flex-wrap:wrap;margin-top:29px}
@@ -137,6 +137,28 @@
     .video-live:before{content:'';width:6px;height:6px;border-radius:50%;background:var(--orange);box-shadow:0 0 10px var(--orange)}
     .video-frame{width:min(100%,390px);margin:auto;aspect-ratio:9/16;background:#050806;border:1px solid rgba(255,159,0,.52);position:relative;overflow:hidden;z-index:1;box-shadow:0 0 26px rgba(255,130,0,.11)}
     .video-frame video{display:block;width:100%;height:100%;object-fit:contain;border:0;background:#050806}
+
+    /* RED CPU / CIRCUIT GX THEME */
+    .grid-circuit-link path{stroke:#ff1744;stroke-width:3;opacity:1;filter:drop-shadow(0 0 5px rgba(255,0,55,.98)) drop-shadow(0 0 12px rgba(255,0,55,.55))}
+    .grid-circuit-link .pulse{stroke:#ff8a9e;stroke-width:2.2;stroke-dasharray:5 7;filter:drop-shadow(0 0 7px #ff1744)}
+    .grid-circuit-link circle{fill:#ff315b;stroke:#ff003c;stroke-width:2.5;filter:drop-shadow(0 0 7px #ff1744) drop-shadow(0 0 14px rgba(255,0,55,.8))}
+    .card,.project,.project-art,.friends-card,.favorite-video,.contact{border-color:rgba(255,25,65,.72);box-shadow:inset 0 0 34px rgba(255,0,55,.13),0 0 18px rgba(255,0,55,.10),0 12px 38px rgba(0,0,0,.24)}
+    .card{border-top-color:#ff1744;background:linear-gradient(135deg,rgba(28,17,21,.91),rgba(10,9,12,.94)),url("gx-circuit-card.svg") center/cover}
+    .card:after,.project-art:before,.project-art:after{border-color:rgba(255,25,65,.78);box-shadow:0 0 20px rgba(255,0,55,.25)}
+    .card:hover{border-color:#ff315b;box-shadow:0 0 0 1px rgba(255,0,55,.38),0 0 28px rgba(255,0,55,.28),inset 0 0 34px rgba(255,0,55,.16)}
+    .card .icon{color:#ff315b;background:rgba(255,0,55,.19);border-color:rgba(255,35,75,.85);box-shadow:0 0 20px rgba(255,0,55,.28),inset 0 0 14px rgba(255,0,55,.18)}
+    .project{background:linear-gradient(120deg,rgba(35,15,22,.92),rgba(10,9,12,.95)),url("gx-circuit-panel.svg") center/cover}
+    .project-art{background:radial-gradient(circle at 50% 45%,rgba(255,0,55,.34),transparent 56%),linear-gradient(135deg,rgba(34,15,22,.94),rgba(8,8,11,.96)),url("gx-circuit-card.svg") center/cover}
+    .project-art .pitch span{color:#ff315b}
+    .friends-card{background:linear-gradient(120deg,rgba(30,15,21,.91),rgba(10,9,12,.95)),url("gx-circuit-panel.svg") center/cover}
+    .friends-photo,.video-frame{border-color:rgba(255,25,65,.82);box-shadow:0 0 25px rgba(255,0,55,.22)}
+    .favorite-video{background:linear-gradient(120deg,rgba(30,15,21,.92),rgba(10,9,12,.96)),url("gx-circuit-panel.svg") center/cover}
+    .contact{background:linear-gradient(110deg,rgba(38,15,23,.92),rgba(13,9,13,.96)),url("gx-circuit-panel.svg") center/cover}
+    .contact:after{color:rgba(255,0,55,.13)}
+    .video-live{color:#ff6681}.video-live:before{background:#ff1744;box-shadow:0 0 12px #ff1744}
+    .section-head{border-left-color:#ff1744}
+    @media(max-width:760px){.grid:before{background:linear-gradient(180deg,#ff315b,#ff003c,#ff718b);box-shadow:0 0 10px rgba(255,0,55,.95),0 0 24px rgba(255,0,55,.48)}.card:before{background:#ff315b;box-shadow:0 0 10px rgba(255,0,55,.95)}}
+
     @media(max-width:980px){
       .wrap{width:calc(100% - 100px);margin-left:78px;margin-right:22px}
       nav{gap:12px;font-size:10px}
@@ -153,12 +175,12 @@
       .gx-browserbar{height:43px;padding:0 14px;gap:12px}.gx-tab{min-width:0;width:190px;height:31px}.gx-browser-status{font-size:8px}
       .gx-rail{display:none}
       .wrap{width:calc(100% - 30px);margin:0 auto}
-      header{min-height:unset;padding:17px 0 13px;align-items:flex-start;flex-direction:column;gap:10px}
+      header{min-height:unset;padding:12px 10px 10px;align-items:flex-start;flex-direction:column;gap:8px;top:0}
       .brand{font-size:23px}
       nav{width:100%;overflow-x:auto;padding:2px 0 10px;gap:18px;scrollbar-width:thin;scrollbar-color:rgba(255,159,0,.5) transparent}
       nav a{font-size:10px}
       .hero{grid-template-columns:1fr;min-height:unset;padding:55px 0 45px;gap:0}
-      h1{font-size:clamp(32px,8.8vw,52px)}
+      h1{font-family:Arial,Helvetica,sans-serif;font-size:clamp(32px,8.8vw,52px)}
       .hero:before{top:17px;font-size:8px}
       .visual{height:310px;margin-top:8px}.visual:before{width:250px;height:250px}.orb{width:190px;height:190px}
       .tag-one{right:2px}.tag-two{left:0}
@@ -218,7 +240,7 @@
           <p class="intro">Xin chào! Mình là Nguyễn Đức Minh, học sinh lớp <strong>12A6 – THPT Hòn Gai</strong>. Đây là góc nhỏ giới thiệu về mình — một chút cá tính, một chút hài hước và một dự án game do chính mình thực hiện.</p>
           <div class="actions">
             <a class="btn primary" href="#project">Khám phá game <span>↗</span></a>
-            <a class="btn secondary" href="#contact">Kết nối với mình</a>
+            <a class="btn secondary" href="#contact">Liên hệ Zalo</a>
           </div>
         </div>
         <div class="visual" aria-label="Đồ họa quả cầu công nghệ">
@@ -326,7 +348,6 @@
         <div class="contact">
           <div>
             <div class="kicker">LET'S CONNECT</div>
-            <h2>Kết nối với mình</h2>
             <p>Nếu muốn trò chuyện hoặc trải nghiệm game, hãy liên hệ với mình qua Zalo nhé.</p>
           </div>
           <a class="btn primary" href="https://zalo.me/0356621681" target="_blank" rel="noopener noreferrer">Zalo · 0356621681 ↗</a>
