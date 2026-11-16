@@ -101,34 +101,41 @@
     .kicker{color:#ffad28;font:700 11px var(--display);letter-spacing:.2em;text-transform:uppercase}
     h2{font:700 33px/1.1 var(--display);letter-spacing:.015em;margin:8px 0;text-transform:uppercase}
     .sub{color:var(--muted);font-size:12px;line-height:1.85;margin:8px 0 0}
-    .grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
-    .card{padding:23px;border:1px solid var(--line-soft);border-top:2px solid rgba(255,159,0,.52);border-radius:4px;background:linear-gradient(145deg,rgba(35,44,39,.9),rgba(17,23,20,.94));min-height:175px;transition:.25s;position:relative;overflow:hidden}
-    .card:after{content:'';position:absolute;right:-30px;bottom:-45px;width:100px;height:100px;border:1px solid rgba(255,159,0,.11);transform:rotate(45deg)}
-    .card:hover{transform:translateY(-5px);border-color:rgba(255,159,0,.48);box-shadow:0 12px 35px rgba(0,0,0,.22)}
-    .icon{width:42px;height:42px;display:grid;place-items:center;background:rgba(255,159,0,.09);border:1px solid rgba(255,159,0,.21);color:var(--orange);font-size:20px;margin-bottom:17px;border-radius:3px}
-    .card h3{font:700 18px var(--display);letter-spacing:.035em;margin:0 0 8px;text-transform:uppercase}
-    .card p{font-size:11px;line-height:1.9;color:var(--muted);margin:0;position:relative;z-index:1}
-    .project{display:grid;grid-template-columns:1fr 1fr;gap:28px;align-items:center;padding:23px;border:1px solid var(--line);border-radius:4px;background:linear-gradient(120deg,rgba(34,43,38,.94),rgba(15,20,17,.96));position:relative;overflow:hidden}
-    .project:before{content:'07V7';position:absolute;right:16px;top:-30px;color:rgba(255,159,0,.045);font:700 120px var(--display);pointer-events:none}
-    .project-art{min-height:245px;display:grid;place-items:center;overflow:hidden;background:radial-gradient(circle at 50% 45%,rgba(255,145,0,.16),transparent 52%),linear-gradient(135deg,#202923,#0e1310);border:1px solid rgba(255,159,0,.22);position:relative}
+    .grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;position:relative;align-items:start;padding:8px 0 62px;isolation:isolate}
+    .grid-circuit-link{position:absolute;inset:0;width:100%;height:100%;z-index:0;overflow:visible;pointer-events:none}
+    .grid-circuit-link path{fill:none;stroke:#ff9700;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;opacity:.82;filter:drop-shadow(0 0 4px rgba(255,139,0,.75))}
+    .grid-circuit-link .pulse{stroke:#ffc04b;stroke-width:1.5;stroke-dasharray:4 9;animation:circuitFlow 3.8s linear infinite}
+    .grid-circuit-link circle{fill:#ffad25;stroke:#ff6a00;stroke-width:1.5;filter:drop-shadow(0 0 5px rgba(255,145,0,.95))}
+    @keyframes circuitFlow{to{stroke-dashoffset:-52}}
+    .card{padding:23px;border:1px solid rgba(255,159,0,.28);border-top:2px solid rgba(255,159,0,.9);border-radius:4px;background:linear-gradient(135deg,rgba(26,34,29,.80),rgba(11,16,13,.84)),url("gx-circuit-card.svg") center/cover;min-height:205px;transition:.25s;position:relative;overflow:hidden;z-index:1;box-shadow:inset 0 0 26px rgba(255,137,0,.035),0 8px 28px rgba(0,0,0,.16)}
+    .card:nth-of-type(3){margin-top:0}
+    .card:nth-of-type(2){margin-top:72px}
+    .card:after{content:'';position:absolute;right:-34px;bottom:-48px;width:126px;height:126px;border:1px solid rgba(255,159,0,.34);transform:rotate(45deg);box-shadow:0 0 18px rgba(255,129,0,.08);pointer-events:none}
+    .card:hover{transform:translateY(-5px);border-color:rgba(255,159,0,.8);box-shadow:0 0 0 1px rgba(255,159,0,.13),0 12px 35px rgba(255,117,0,.14),inset 0 0 30px rgba(255,137,0,.06)}
+    .card .icon{width:42px;height:42px;display:grid;place-items:center;background:rgba(255,159,0,.13);border:1px solid rgba(255,159,0,.44);color:var(--orange);font-size:20px;margin-bottom:17px;border-radius:3px;box-shadow:0 0 16px rgba(255,145,0,.12),inset 0 0 12px rgba(255,145,0,.08);position:relative;z-index:2}
+    .card h3{font:700 18px var(--display);letter-spacing:.035em;margin:0 0 8px;text-transform:uppercase;position:relative;z-index:2}
+    .card p{font-size:11px;line-height:1.9;color:#b1bbb4;margin:0;position:relative;z-index:2}
+    .project{display:grid;grid-template-columns:1fr 1fr;gap:28px;align-items:center;padding:23px;border:1px solid rgba(255,159,0,.34);border-radius:4px;background:linear-gradient(120deg,rgba(29,37,32,.82),rgba(10,15,12,.86)),url("gx-circuit-panel.svg") center/cover;position:relative;overflow:hidden;box-shadow:inset 0 0 35px rgba(255,136,0,.04),0 12px 38px rgba(0,0,0,.18)}
+    .project:before{content:'07V7';position:absolute;right:16px;top:-30px;color:rgba(255,159,0,.075);font:700 120px var(--display);pointer-events:none}
+    .project-art{min-height:245px;display:grid;place-items:center;overflow:hidden;background:radial-gradient(circle at 50% 45%,rgba(255,145,0,.22),transparent 52%),linear-gradient(135deg,rgba(26,36,29,.86),rgba(8,13,10,.9)),url("gx-circuit-card.svg") center/cover;border:1px solid rgba(255,159,0,.38);position:relative;box-shadow:inset 0 0 28px rgba(255,139,0,.08)}
     .project-art:before,.project-art:after{content:'';position:absolute;width:170px;height:170px;border:1px solid rgba(255,159,0,.25);transform:rotate(45deg)}
     .project-art:after{width:205px;height:205px;border-color:rgba(255,159,0,.1)}
     .pitch{position:relative;z-index:1;font:700 clamp(35px,5vw,56px)/.95 var(--display);text-align:center;color:#f2f4f0;text-shadow:0 0 30px rgba(255,159,0,.2)}
     .pitch span{display:block;color:var(--orange);font-size:14px;letter-spacing:.28em;margin-top:13px}
     .project p{color:var(--muted);font-size:12px;line-height:1.9}
-    .contact{display:flex;justify-content:space-between;align-items:center;gap:20px;padding:28px;border-radius:4px;background:linear-gradient(110deg,rgba(255,140,0,.13),rgba(27,36,31,.95));border:1px solid var(--line);position:relative;overflow:hidden}
+    .contact{display:flex;justify-content:space-between;align-items:center;gap:20px;padding:28px;border-radius:4px;background:linear-gradient(110deg,rgba(38,34,24,.80),rgba(13,18,15,.86)),url("gx-circuit-panel.svg") center/cover;border:1px solid rgba(255,159,0,.36);position:relative;overflow:hidden;box-shadow:inset 0 0 34px rgba(255,136,0,.05),0 12px 38px rgba(0,0,0,.16)}
     .contact:after{content:'CONNECT';position:absolute;right:16%;top:-24px;color:rgba(255,159,0,.055);font:700 100px var(--display);pointer-events:none}
     .contact h2{margin:0 0 8px}.contact p{margin:0;color:var(--muted);font-size:12px;line-height:1.8}
     footer{padding:32px 0 28px;text-align:center;color:#75827a;font-size:10px;letter-spacing:.11em;border-top:1px solid var(--line-soft);margin-top:55px}
-    .friends-card{display:grid;grid-template-columns:minmax(0,.9fr) 1.1fr;gap:26px;align-items:center;padding:20px;border:1px solid var(--line-soft);border-radius:4px;background:linear-gradient(120deg,rgba(34,43,38,.94),rgba(15,20,17,.96))}
-    .friends-photo{width:100%;height:100%;max-height:440px;min-height:280px;object-fit:cover;object-position:center 35%;border:1px solid rgba(255,159,0,.24);display:block}
-    .friends-copy h3{font:700 25px var(--display);letter-spacing:.025em;margin:10px 0 12px;text-transform:uppercase}
+    .friends-card{display:grid;grid-template-columns:minmax(0,.9fr) 1.1fr;gap:26px;align-items:center;padding:20px;border:1px solid rgba(255,159,0,.34);border-radius:4px;background:linear-gradient(120deg,rgba(28,36,31,.82),rgba(10,15,12,.86)),url("gx-circuit-panel.svg") center/cover;box-shadow:inset 0 0 34px rgba(255,136,0,.045),0 12px 38px rgba(0,0,0,.16);position:relative;overflow:hidden}
+    .friends-photo{width:100%;height:100%;max-height:440px;min-height:280px;object-fit:cover;object-position:center 35%;border:1px solid rgba(255,159,0,.48);display:block;position:relative;z-index:1;box-shadow:0 0 22px rgba(255,133,0,.12)}
+    .friends-copy{position:relative;z-index:1}.friends-copy h3{font:700 25px var(--display);letter-spacing:.025em;margin:10px 0 12px;text-transform:uppercase}
     .friends-copy p{color:var(--muted);font-size:12px;line-height:1.9;margin:0}
-    .favorite-video{padding:18px;border:1px solid var(--line);border-radius:4px;background:linear-gradient(120deg,rgba(34,43,38,.94),rgba(15,20,17,.96))}
-    .video-topline{display:flex;align-items:center;justify-content:space-between;gap:12px;margin-bottom:13px;color:#abb6ae;font-size:10px;letter-spacing:.12em;text-transform:uppercase}
+    .favorite-video{padding:18px;border:1px solid rgba(255,159,0,.38);border-radius:4px;background:linear-gradient(120deg,rgba(27,35,30,.82),rgba(10,15,12,.87)),url("gx-circuit-panel.svg") center/cover;box-shadow:inset 0 0 38px rgba(255,136,0,.045),0 12px 38px rgba(0,0,0,.18);position:relative;overflow:hidden}
+    .video-topline{display:flex;align-items:center;justify-content:space-between;gap:12px;margin-bottom:13px;color:#d0b38a;font-size:10px;letter-spacing:.12em;text-transform:uppercase;position:relative;z-index:1}
     .video-live{display:inline-flex;align-items:center;gap:7px;color:#ffbd58}
     .video-live:before{content:'';width:6px;height:6px;border-radius:50%;background:var(--orange);box-shadow:0 0 10px var(--orange)}
-    .video-frame{width:min(100%,390px);margin:auto;aspect-ratio:9/16;background:#050806;border:1px solid rgba(255,159,0,.2);position:relative;overflow:hidden}
+    .video-frame{width:min(100%,390px);margin:auto;aspect-ratio:9/16;background:#050806;border:1px solid rgba(255,159,0,.52);position:relative;overflow:hidden;z-index:1;box-shadow:0 0 26px rgba(255,130,0,.11)}
     .video-frame video{display:block;width:100%;height:100%;object-fit:contain;border:0;background:#050806}
     @media(max-width:980px){
       .wrap{width:calc(100% - 100px);margin-left:78px;margin-right:22px}
@@ -137,6 +144,12 @@
       h1{font-size:clamp(32px,5.2vw,54px)}
     }
     @media(max-width:760px){
+      .grid{grid-template-columns:1fr;padding:0 0 0 18px;gap:15px}
+      .grid-circuit-link{display:none}
+      .grid:before{content:'';position:absolute;left:3px;top:4px;bottom:4px;width:2px;background:linear-gradient(180deg,rgba(255,191,66,.95),rgba(255,105,0,.58),rgba(255,176,35,.92));box-shadow:0 0 9px rgba(255,143,0,.7),0 0 20px rgba(255,118,0,.25)}
+      .card:nth-of-type(2){margin-top:0}
+      .card{min-height:unset}
+      .card:before{content:'';position:absolute;left:-18px;top:38px;width:19px;height:2px;background:#ff9b13;box-shadow:0 0 8px rgba(255,143,0,.8)}
       .gx-browserbar{height:43px;padding:0 14px;gap:12px}.gx-tab{min-width:0;width:190px;height:31px}.gx-browser-status{font-size:8px}
       .gx-rail{display:none}
       .wrap{width:calc(100% - 30px);margin:0 auto}
@@ -224,6 +237,12 @@
           <p class="sub">Những điều cơ bản tạo nên phiên bản Nguyễn Đức Minh.</p>
         </div>
         <div class="grid">
+          <svg class="grid-circuit-link" viewBox="0 0 1000 320" preserveAspectRatio="none" aria-hidden="true">
+            <path d="M322 100 H336 V176 H348"/><path class="pulse" d="M322 108 H332 V184 H348"/>
+            <circle cx="336" cy="100" r="3"/><circle cx="336" cy="176" r="3"/>
+            <path d="M652 176 H664 V100 H678"/><path class="pulse" d="M652 184 H668 V108 H678"/>
+            <circle cx="664" cy="176" r="3"/><circle cx="664" cy="100" r="3"/>
+          </svg>
           <article class="card">
             <div class="icon">🎓</div>
             <h3>Trường lớp</h3>
