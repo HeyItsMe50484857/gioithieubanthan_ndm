@@ -200,6 +200,102 @@
       h2{font-size:29px}.video-topline{font-size:8px}
     }
     @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*,*:before,*:after{animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important}}
+  
+
+    /* COMPACT GX MEDIA CLUSTER: friends top-left, contact bottom-left, video right */
+    .media-cluster{
+      display:grid;
+      grid-template-columns:minmax(0,1fr) minmax(0,1fr);
+      grid-template-rows:minmax(0,1fr) auto;
+      grid-template-areas:"friends video" "contact video";
+      gap:16px;
+      align-items:stretch;
+      margin:24px 0 56px;
+      position:relative;
+      isolation:isolate;
+    }
+    .media-cluster > #friends{grid-area:friends; min-width:0; padding:0; margin:0;}
+    .media-cluster > #contact{grid-area:contact; min-width:0; padding:0; margin:0;}
+    .media-cluster > #favorite-video{grid-area:video; min-width:0; padding:0; margin:0;}
+    .media-cluster .section-head{margin:0 0 11px;padding-left:11px;}
+    .media-cluster .section-head h2{font-size:clamp(21px,2.2vw,27px);margin:4px 0;}
+    .media-cluster .section-head .sub{font-size:10px;line-height:1.55;margin-top:4px;}
+
+    /* Compact upper-left friends card */
+    .media-cluster .friends-card{
+      grid-template-columns:minmax(105px,.72fr) minmax(0,1fr);
+      gap:13px;
+      align-items:center;
+      padding:12px;
+      min-height:158px;
+      height:calc(100% - 0px);
+    }
+    .media-cluster .friends-photo{width:100%;height:132px;min-height:132px;max-height:132px;object-position:center 35%;}
+    .media-cluster .friends-copy h3{font-size:clamp(15px,1.5vw,19px);line-height:1.15;margin:6px 0 7px;}
+    .media-cluster .friends-copy p{font-size:10px;line-height:1.65;}
+    .media-cluster .friends-copy .kicker{font-size:9px;}
+
+    /* Compact lower-left Zalo contact box */
+    .media-cluster .contact{
+      height:100%;min-height:142px;
+      padding:17px;
+      display:flex;flex-direction:column;align-items:flex-start;justify-content:center;
+      gap:12px;
+    }
+    .media-cluster .contact .kicker{font-size:10px;}
+    .media-cluster .contact p{font-size:10px;line-height:1.65;max-width:360px;}
+    .media-cluster .contact .btn{min-height:38px;padding:9px 14px;font-size:10px;}
+    .media-cluster .contact:after{font-size:70px;right:5%;top:-15px;}
+
+    /* Right-side video panel: portrait player kept compact within a square-like block */
+    .media-cluster .favorite-video{
+      height:100%;min-height:100%;
+      padding:14px;
+      display:flex;flex-direction:column;
+    }
+    .media-cluster .favorite-video .video-topline{font-size:9px;margin-bottom:10px;}
+    .media-cluster .video-frame{
+      width:min(100%,220px);
+      max-height:calc(100% - 34px);
+      aspect-ratio:9/16;
+      flex:1 1 auto;
+      min-height:280px;
+      align-self:center;
+    }
+    .media-cluster .video-frame video{object-fit:contain;}
+
+    @media(max-width:980px){
+      .media-cluster{gap:12px;}
+      .media-cluster .friends-card{grid-template-columns:minmax(90px,.65fr) minmax(0,1fr);gap:10px;padding:10px;}
+      .media-cluster .friends-photo{height:118px;min-height:118px;max-height:118px;}
+      .media-cluster .contact{min-height:132px;padding:14px;}
+      .media-cluster .favorite-video{padding:12px;}
+      .media-cluster .video-frame{width:min(100%,198px);min-height:260px;}
+    }
+    @media(max-width:760px){
+      .media-cluster{
+        grid-template-columns:minmax(0,1fr);
+        grid-template-rows:auto;
+        grid-template-areas:"friends" "contact" "video";
+        gap:15px;
+        margin:20px 0 42px;
+      }
+      .media-cluster .section-head{margin-bottom:9px;}
+      .media-cluster .friends-card{grid-template-columns:minmax(105px,.65fr) minmax(0,1fr);min-height:145px;}
+      .media-cluster .friends-photo{height:120px;min-height:120px;max-height:120px;}
+      .media-cluster .contact{min-height:unset;}
+      .media-cluster .favorite-video{height:auto;min-height:unset;}
+      .media-cluster .video-frame{width:min(100%,230px);min-height:300px;max-height:none;flex:none;}
+    }
+    @media(max-width:430px){
+      .media-cluster .friends-card{grid-template-columns:105px minmax(0,1fr);gap:10px;padding:9px;}
+      .media-cluster .friends-photo{height:112px;min-height:112px;max-height:112px;}
+      .media-cluster .friends-copy h3{font-size:15px;}
+      .media-cluster .friends-copy p{font-size:9px;}
+      .media-cluster .favorite-video{padding:11px;}
+      .media-cluster .video-frame{width:min(100%,215px);min-height:285px;}
+    }
+
   </style>
 </head>
 <body>
@@ -301,7 +397,15 @@
       </section>
 
 
-      <section id="friends">
+      
+
+
+      
+
+      
+    
+      <div class="media-cluster" aria-label="Bạn bè, liên hệ và video yêu thích">
+<section id="friends">
         <div class="section-head">
           <div class="kicker">MY CIRCLE</div>
           <h2>Bạn bè của tôi</h2>
@@ -316,9 +420,16 @@
           </div>
         </div>
       </section>
-
-
-      <section id="favorite-video">
+<section id="contact">
+        <div class="contact">
+          <div>
+            <div class="kicker">LET'S CONNECT</div>
+            <p>Nếu muốn trò chuyện hoặc trải nghiệm game, hãy liên hệ với mình qua Zalo nhé.</p>
+          </div>
+          <a class="btn primary" href="https://zalo.me/0356621681" target="_blank" rel="noopener noreferrer">Zalo · 0356621681 ↗</a>
+        </div>
+      </section>
+<section id="favorite-video">
         <div class="section-head">
           <div class="kicker">GX VIDEO PLAYER</div>
           <h2>Video yêu thích</h2>
@@ -343,17 +454,8 @@
           </div>
         </div>
       </section>
-
-      <section id="contact">
-        <div class="contact">
-          <div>
-            <div class="kicker">LET'S CONNECT</div>
-            <p>Nếu muốn trò chuyện hoặc trải nghiệm game, hãy liên hệ với mình qua Zalo nhé.</p>
-          </div>
-          <a class="btn primary" href="https://zalo.me/0356621681" target="_blank" rel="noopener noreferrer">Zalo · 0356621681 ↗</a>
-        </div>
-      </section>
-    </main>
+      </div>
+</main>
 
     <footer>© 2026 NGUYỄN ĐỨC MINH · MADE WITH CURIOSITY</footer>
   </div>
